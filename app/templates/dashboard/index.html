@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h2 class="mb-4">Welcome back, {{ current_user.username }}!</h2>
+    </div>
+</div>
+
+<div class="row">
+    <!-- Income Summary -->
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h5 class="card-title">Total Income</h5>
+                <h2 class="card-text">₹{{ "%.2f"|format(total_income) }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expense Summary -->
+    <div class="col-md-4 mb-4">
+        <div class="card text-white bg-danger">
+            <div class="card-body">
+                <h5 class="card-title">Total Expenses</h5>
+                <h2 class="card-text">₹{{ "%.2f"|format(total_expense) }}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Balance Summary -->
+    <div class="col-md-4 mb-4">
+        <div class="card text-white {% if balance >= 0 %}bg-primary{% else %}bg-warning{% endif %}">
+            <div class="card-body">
+                <h5 class="card-title">Current Balance</h5>
+                <h2 class="card-text">₹{{ "%.2f"|format(balance) }}</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <!-- Recent Transactions -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Recent Transactions</h5>
+                <a href="{{ url_for('finance.transactions') }}" class="btn btn-sm btn-outline-primary">View All</a>
+            </div>
+            <div class="card-body">
+                {% if recent_transactions %}
+                <ul class="list-group list-group-flush">
+                    {% for t in recent_transactions %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <strong>{{ t.category }}</strong>
+                            <br>
+                            <small class="text-muted">{{ t.date.strftime('%Y-%m-%d') }} - {{ t.description }}</small>
+                        </div>
+                        <span
+                            class="badge {% if t.type == 'income' %}bg-success{% else %}bg-danger{% endif %} rounded-pill">
+                            {% if t.type == 'income' %}+{% else %}-{% endif %} ₹{{ "%.2f"|format(t.amount) }}
+                        </span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p class="text-muted text-center my-3">No transactions found. <a
+                        href="{{ url_for('finance.add_transaction') }}">Add one now</a>.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Quick Actions</h5>
+            </div>
+            <div class="card-body d-grid gap-2">
+                <a href="{{ url_for('finance.add_transaction') }}" class="btn btn-primary">Add Transaction</a>
+                <a href="{{ url_for('advisor.insights') }}" class="btn btn-info text-white">Generate AI Insights</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row mt-4 mb-3">
+    <div class="col">
+        <h2>AI Financial Advisor</h2>
+        <p class="text-muted">Personalized insights and budget recommendations generated from your financial records.
+        </p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-dark text-white fw-semibold">
+                Financial Snapshot
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total Income:</span>
+                    <span class="text-success fw-bold">₹{{ "%.2f"|format(total_income) }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total Expenses:</span>
+                    <span class="text-danger fw-bold">₹{{ "%.2f"|format(total_expense) }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Net Balance:</span>
+                    <span
+                        class="{% if total_income >= total_expense %}text-primary{% else %}text-danger{% endif %} fw-bold">
+                        ₹{{ "%.2f"|format(total_income - total_expense) }}
+                    </span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="alert alert-info shadow-sm">
+            <h6 class="alert-heading fw-bold">💡 How it works</h6>
+            <p class="small mb-0">Our AI evaluates your income sources, categorizes your expenses, detects overspending,
+                and calculates a customized budget allocation.</p>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center py-3">
+                <h5 class="mb-0">✨ AI Financial Advisor Analysis</h5>
+                <span class="badge bg-light text-primary">Live Generated</span>
+            </div>
+            <div class="card-body p-4">
+                <div id="ai-rendered-output"></div>
+                <!-- Raw text hidden for parser -->
+                <textarea id="ai-raw" style="display:none;">{{ advice }}</textarea>
+            </div>
+            <div class="card-footer text-muted text-end bg-light">
+                <small>Powered by Generative AI Advisor Engine</small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Marked.js for parsing markdown into styled HTML -->
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const rawContent = document.getElementById("ai-raw").value;
+        const target = document.getElementById("ai-rendered-output");
+        target.innerHTML = marked.parse(rawContent);
+    });
+</script>
+<style>
+    #ai-rendered-output table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1rem 0;
+    }
+
+    #ai-rendered-output th,
+    #ai-rendered-output td {
+        border: 1px solid #dee2e6;
+        padding: 0.5rem 0.75rem;
+    }
+
+    #ai-rendered-output th {
+        background-color: #f8f9fa;
+    }
+</style>
+{% endblock %}

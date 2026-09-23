@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Script - 5 Min Presentation</title>
+    <style>
+        :root {
+            --bg: #121212;
+            --card-bg: #1e1e1e;
+            --text: #e0e0e0;
+            --accent: #4dabf7;
+            --speaker: #a5d8ff;
+            --cue-bg: #2b3a4a;
+            --cue-text: #74c0fc;
+            --time-bg: #ffd43b;
+            --time-text: #000;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 16px;
+            line-height: 1.6;
+            font-size: 19px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 16px 0 20px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 22px;
+            margin: 0 0 6px;
+            color: var(--accent);
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #888;
+            margin: 0;
+        }
+
+        .section-card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            border-left: 5px solid var(--accent);
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: var(--time-bg);
+            color: var(--time-text);
+            font-size: 13px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 4px 0 12px;
+            color: #fff;
+        }
+
+        .screen-action {
+            background: var(--cue-bg);
+            color: var(--cue-text);
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-size: 15px;
+            margin-bottom: 14px;
+            font-style: italic;
+        }
+
+        .speaker-text {
+            color: var(--speaker);
+            font-size: 19px;
+            line-height: 1.65;
+        }
+
+        .speaker-text strong {
+            color: #fff;
+        }
+
+        .tips-card {
+            background: #25262b;
+            border-radius: 12px;
+            padding: 18px;
+            margin-top: 30px;
+            border: 1px dashed #555;
+            font-size: 15px;
+        }
+
+        .tips-card h3 {
+            margin-top: 0;
+            color: #ffd43b;
+            font-size: 17px;
+        }
+
+        .tips-card ul {
+            padding-left: 20px;
+            margin: 0;
+            color: #ccc;
+        }
+
+        .tips-card li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🎙️ Personal Finance Advisor Bot</h1>
+        <p>5-Minute Video Presentation Script (Mobile Teleprompter)</p>
+    </div>
+
+    <!-- Section 1 -->
+    <div class="section-card">
+        <span class="time-badge">⏱️ 0:00 - 0:45 (45s)</span>
+        <div class="section-title">1. Introduction & The Problem</div>
+        <div class="screen-action">🖥️ <strong>On Screen:</strong> Title slide with project name, tech stack logos (Flask, Python, AI, SQLite).</div>
+        <div class="speaker-text">
+            "Hello everyone! Welcome to my demonstration of the <strong>AI-Powered Personal Finance Advisor Bot</strong>.<br><br>
+            In today's fast-paced world, managing personal finances is a common challenge. Most traditional budgeting apps act as passive digital ledger sheets—they record your numbers, but they don't give you personalized, actionable advice on how to improve your financial habits.<br><br>
+            To solve this, I designed and developed an intelligent web platform that combines full-stack web development with Generative AI. Not only does it track your income and expenses in real-time, but it also functions as your personal 24/7 financial planner—analyzing your spending habits, detecting overspending patterns, and generating customized budget and savings strategies."
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div class="section-card">
+        <span class="time-badge">⏱️ 0:45 - 1:30 (45s)</span>
+        <div class="section-title">2. Architecture & Tech Stack</div>
+        <div class="screen-action">🖥️ <strong>On Screen:</strong> Show Architecture Diagram (User ➔ Flask App ➔ Database ➔ AI Engine).</div>
+        <div class="speaker-text">
+            "Let's take a quick look at the technical architecture behind the application:<br><br>
+            • <strong>Backend:</strong> Built on Python using the <strong>Flask</strong> web framework, structured using modular blueprints for Authentication, Financial Tracking, and AI Services.<br>
+            • <strong>Database & ORM:</strong> Powered by <strong>SQLAlchemy</strong> with an SQLite database, managing structured relational models for Users, Transactions, and Budgets.<br>
+            • <strong>Security:</strong> Features secure session management via <strong>Flask-Login</strong>, industry-standard password hashing using <strong>Bcrypt</strong>, and secure credential handling via environment variables.<br>
+            • <strong>Frontend:</strong> Responsive and modern UI built with <strong>Jinja2</strong> templates, <strong>Bootstrap 5</strong>, and dynamic markdown parsing with <strong>Marked.js</strong>.<br>
+            • <strong>AI Engine:</strong> Integrated with Generative AI LLM APIs to perform real-time financial health evaluation and budget generation."
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div class="section-card">
+        <span class="time-badge">⏱️ 1:30 - 2:45 (75s)</span>
+        <div class="section-title">3. Live Demo: Auth & Financial Tracking</div>
+        <div class="screen-action">🖥️ <strong>On Screen:</strong> Browser at <code>http://127.0.0.1:5000</code>. Register/login, then show Dashboard & add transaction.</div>
+        <div class="speaker-text">
+            "Now let’s jump straight into the live application.<br><br>
+            <em>(Action: Click Register/Login)</em><br>
+            First, we have a complete authentication system with input validation, ensuring that each user’s financial records remain private and secure.<br><br>
+            <em>(Action: Show the Dashboard)</em><br>
+            Once logged in, the user lands on the primary financial dashboard. Right at the top, clean summary cards show <strong>Total Income</strong>, <strong>Total Expenses</strong>, and the current <strong>Net Balance</strong> in Indian Rupees (₹).<br><br>
+            <em>(Action: Navigate to 'Add Transaction' and submit an entry)</em><br>
+            Users can easily record their transactions. Let's add an expense—say, ₹4,500 under 'Groceries'. We click save, and it instantly updates our transaction ledger and recalculates our balances across the entire app."
+        </div>
+    </div>
+
+    <!-- Section 4 -->
+    <div class="section-card">
+        <span class="time-badge">⏱️ 2:45 - 4:00 (75s)</span>
+        <div class="section-title">4. Core Highlight: AI Financial Advisor</div>
+        <div class="screen-action">🖥️ <strong>On Screen:</strong> Click 'AI Advisor' tab in navbar. Scroll down to show generated tables & recommendations.</div>
+        <div class="speaker-text">
+            "Here is where the real power of the platform comes alive: the <strong>AI Financial Advisor</strong>.<br><br>
+            Instead of giving generic advice, our backend aggregates the user's live transaction history, categorizes their expenditures, and injects this context into a carefully crafted financial engineering prompt sent to the LLM.<br><br>
+            <em>(Action: Scroll down through the AI insights)</em><br>
+            As you can see, the AI generates a comprehensive report rendered in formatted markdown:<br>
+            1. <strong>Spending Analysis & Health:</strong> It breaks down the ratio of income spent on essentials versus discretionary expenses.<br>
+            2. <strong>Overspending Detection:</strong> It flags categories where spending is disproportionately high.<br>
+            3. <strong>Cost Optimization:</strong> It gives immediate, practical suggestions to cut down expenses.<br>
+            4. <strong>Budget Allocation:</strong> It models a 50/30/20 budget framework customized to the user’s exact income level in Rupees.<br>
+            5. <strong>Actionable Savings Steps:</strong> Clear steps to build an emergency fund and hit savings goals."
+        </div>
+    </div>
+
+    <!-- Section 5 -->
+    <div class="section-card">
+        <span class="time-badge">⏱️ 4:00 - 4:35 (35s)</span>
+        <div class="section-title">5. Deployment with Ngrok</div>
+        <div class="screen-action">🖥️ <strong>On Screen:</strong> Terminal showing Flask running, and Ngrok public URL in browser.</div>
+        <div class="speaker-text">
+            "For testing, demonstration, and remote access, the project is configured for public deployment using <strong>Ngrok</strong>.<br><br>
+            By tunneling our local Flask port through an authenticated Ngrok endpoint, the application is accessible from mobile devices or external testers anywhere with an HTTPS connection, making it simple to test cross-device responsiveness and real-world workflows."
+        </div>
+    </div>
+
+    <!-- Section 6 -->
+    <div class="section-card">
+        <span class="time-badge">⏱️ 4:35 - 5:00 (25s)</span>
+        <div class="section-title">6. Key Learnings & Conclusion</div>
+        <div class="screen-action">🖥️ <strong>On Screen:</strong> Concluding slide with key learnings summary and GitHub repo link.</div>
+        <div class="speaker-text">
+            "To conclude, this project provided valuable hands-on experience in full-stack development, database architecture, prompt engineering, and integrating modern Generative AI into real-world FinTech solutions.<br><br>
+            Thank you so much for your time! I'd be glad to answer any questions or discuss potential enhancements like automated receipt scanning and PDF export reports."
+        </div>
+    </div>
+
+    <div class="tips-card">
+        <h3>💡 Tips While Recording:</h3>
+        <ul>
+            <li>Hold your phone next to your webcam/monitor so your eye-line stays natural.</li>
+            <li>Maintain an easy, conversational pace (~130 words per minute).</li>
+            <li>Smile and speak with confidence!</li>
+        </ul>
+    </div>
+
+</body>
+</html>
+
